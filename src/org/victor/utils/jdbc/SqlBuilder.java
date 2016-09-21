@@ -1,4 +1,4 @@
-package org.jutil.jdbc;
+package org.victor.utils.jdbc;
 
 import java.util.ArrayList;
 import java.util.List;

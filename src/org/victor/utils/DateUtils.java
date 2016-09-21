@@ -1,4 +1,4 @@
-package org.jutil;
+package org.victor.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

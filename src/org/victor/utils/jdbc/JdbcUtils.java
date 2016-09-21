@@ -1,4 +1,4 @@
-package org.jutil.jdbc;
+package org.victor.utils.jdbc;
 
 import java.math.BigDecimal;
 import java.sql.Blob;
