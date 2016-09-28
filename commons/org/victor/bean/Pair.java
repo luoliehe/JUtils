@@ -1,4 +1,4 @@
-package org.victor.commonsbean;
+package org.victor.bean;
 
 /**
  * 只存放两个相同类型

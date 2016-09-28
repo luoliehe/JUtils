@@ -1,4 +1,4 @@
-package org.victor.commonsbean;
+package org.victor.bean;
 
 /**
  * 存放 key value值对象
