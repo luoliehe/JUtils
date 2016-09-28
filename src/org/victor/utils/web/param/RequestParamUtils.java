@@ -33,7 +33,7 @@ public class RequestParamUtils {
 	 * @throws IllegalAccessException
 	 * @throws InvocationTargetException
 	 */
-	public static <T> T binder(Class<T> c, HttpServletRequest request)
+	public static <T> T binder(Class<? extends T> c, HttpServletRequest request)
 			throws IllegalAccessException, InvocationTargetException,
 			InstantiationException {
 		
