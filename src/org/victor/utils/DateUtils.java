@@ -8,8 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 日期辅助工具类
- * 
+ * 日期辅助工具类,继承 {@link org.apache.commons.lang3.time.DateUtils}
  * @author victor.luo
  */
 public abstract class DateUtils extends org.apache.commons.lang3.time.DateUtils{
