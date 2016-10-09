@@ -4,43 +4,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SqlBuilder {
-    private StringBuilder sqlBuilder = new StringBuilder();
-    private List<Object> values = new ArrayList<>();
+	
+	protected StringBuilder sqlBuf = new StringBuilder();
+	protected List<Object> values = new ArrayList<>();
 
-    public SqlBuilder appendSql(String s) {
-        sqlBuilder.append(s);
-        return this;
-    }    
+	public SqlBuilder appendSql(String sql) {
+		sqlBuf.append(sql);
+		return this;
+	}
 
-    public SqlBuilder appendValue(Object value) {
-        sqlBuilder.append('?');
-        values.add(value);
-        return this;
-    }
+	public SqlBuilder appendValue(Object value) {
+		sqlBuf.append('?');
+		values.add(value);
+		return this;
+	}
 
-    public SqlBuilder appendValues(Object[] values) {
-        sqlBuilder.append('(').append(values[0]);
-        for (int i = 1, c = values.length; i < c; ++i) {
-            sqlBuilder.append('?').append(','); 
-            this.values.add(values[i]);
-        }
-        sqlBuilder.append(")  ");
-        return this;
-    }
+	public SqlBuilder appendValues(Object[] values) {
+		sqlBuf.append('(');
+		for (int i = 0, c = values.length; i < c; ++i) {
+			sqlBuf.append('?').append(',');
+			this.values.add(values[i]);
+		}
+		int last = sqlBuf.length() - 1;
+		if (last > 0 && sqlBuf.charAt(last) == ',') {
+			sqlBuf.setCharAt(last, ')');
+		}
 
-    public String getSql() {
-        return sqlBuilder.toString();
-    }
+		return this;
+	}
 
-    public Object[] getValues() {
-        return values.toArray();
-    }
+	public String getSql() {
+		return sqlBuf.toString();
+	}
 
-    public boolean hasValue() {
-        return ! values.isEmpty();
-    }
-    
-    public String getCountSql(){
-    	return "select count(1) from "+ sqlBuilder.toString().split("from", 1);
-    }
+	public Object[] getValues() {
+		return values.toArray();
+	}
+
+	public boolean hasValue() {
+		return !values.isEmpty();
+	}
 }
