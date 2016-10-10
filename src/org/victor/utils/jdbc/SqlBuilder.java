@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SqlBuilder {
-	
-	protected StringBuilder sqlBuf = new StringBuilder();
-	protected List<Object> values = new ArrayList<>();
+
+	private StringBuilder sqlBuf = new StringBuilder();
+	private List<Object> values = new ArrayList<>();
 
 	public SqlBuilder appendSql(String sql) {
 		sqlBuf.append(sql);
