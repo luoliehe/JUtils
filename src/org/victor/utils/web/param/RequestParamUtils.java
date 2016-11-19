@@ -18,8 +18,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
 /**
- * http 请求参数工具类
- * 
+ * http 请求参数工具类,将参数自动映射到实体中，根据名称匹配
  * @author luoliehe
  */
 public class RequestParamUtils {
@@ -33,7 +32,7 @@ public class RequestParamUtils {
 	 * @throws IllegalAccessException
 	 * @throws InvocationTargetException
 	 */
-	public static <T> T binder(Class<? extends T> c, HttpServletRequest request)
+	public static <T> T binder(Class<T> c, HttpServletRequest request)
 			throws IllegalAccessException, InvocationTargetException,
 			InstantiationException {
 		
